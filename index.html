@@ -113,6 +113,21 @@ section{padding:90px 0}
 .step h4{font-size:16px;font-weight:800;margin-bottom:6px}
 .step p{color:var(--ink-2);font-size:14px}
 
+/* note */
+.note{
+  display:flex;align-items:center;gap:16px;margin-top:22px;
+  background:linear-gradient(150deg,var(--card),var(--paper-2));
+  border:1px solid var(--line);border-radius:20px;padding:24px 26px;
+}
+.note-ico{
+  flex:0 0 auto;width:52px;height:52px;border-radius:50%;
+  background:var(--gold);color:#fff;font-size:24px;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 10px 24px rgba(200,146,47,.3);
+}
+.note p{color:var(--ink-2);font-size:15px}
+.note p b{color:var(--ink)}
+
 /* audience */
 .aud{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
 .aud-card{
@@ -209,6 +224,10 @@ footer b{color:var(--red)}
       <div class="step rv"><h4>Озвучка</h4><p>Нажмите ▶ — сказка звучит на нужном языке.</p></div>
       <div class="step rv"><h4>Весь текст</h4><p>Прочитайте сказку целиком после разбора.</p></div>
       <div class="step rv"><h4>Для всех</h4><p>Дети учат слова играя, взрослые — вспоминают языки.</p></div>
+    </div>
+    <div class="note rv">
+      <span class="note-ico">🔄</span>
+      <p>После разбора слово за словом текст читается <b>легко и просто</b>. А если забыли, как переводится или звучит слово — просто вернитесь обратно к разбору в любой момент.</p>
     </div>
   </div>
 </section>
