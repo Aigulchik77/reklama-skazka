@@ -5,6 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Красная Шапочка — сказка, которая учит языкам</title>
 <meta name="description" content="Известная сказка для детей и взрослых: учите хинди, английский и итальянский — слово за словом, с транскрипцией и озвучкой.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Сказка-читалка">
+<meta property="og:title" content="Красная Шапочка — сказка, которая учит языкам">
+<meta property="og:description" content="Хотите легко заговорить на иностранном языке без скучной зубрёжки? Инновационная сказка-читалка: слово за словом, с транскрипцией и озвучкой. Сразу несколько языков — легко, недорого и в рекордные сроки.">
+<meta property="og:url" content="https://aigulchik77.github.io/reklama-skazka/">
+<meta property="og:image" content="https://aigulchik77.github.io/reklama-skazka/poster.jpg">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
+<meta property="og:video" content="https://aigulchik77.github.io/reklama-skazka/reklama.mp4">
+<meta property="og:video:type" content="video/mp4">
+<meta property="og:video:width" content="256">
+<meta property="og:video:height" content="256">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Красная Шапочка — сказка, которая учит языкам">
+<meta name="twitter:description" content="Учите несколько языков одновременно: слово за словом, с транскрипцией и профессиональной озвучкой.">
+<meta name="twitter:image" content="https://aigulchik77.github.io/reklama-skazka/poster.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@300;400;500;600;700;800&family=Noto+Serif+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -205,6 +221,22 @@ footer b{color:var(--red)}
 .rv{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease}
 .rv.in{opacity:1;transform:none}
 
+/* video */
+.video-box{
+  background:linear-gradient(150deg,var(--card),var(--paper-2));
+  border:1px solid var(--line);border-radius:24px;padding:20px;
+  box-shadow:var(--shadow);max-width:640px;
+}
+.video-box video{
+  display:block;width:100%;aspect-ratio:1/1;border-radius:16px;
+  background:#000;object-fit:cover;cursor:pointer;
+}
+.video-box::before{
+  content:"▶ Смотреть видео";display:block;text-align:center;
+  font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--red);padding:4px 0 14px;font-size:13px;
+}
+
 @media (max-width:640px){section{padding:70px 0}}
 </style>
 </head>
@@ -227,6 +259,21 @@ footer b{color:var(--red)}
     </div>
   </div>
 </header>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>Смотрите, как это работает</h2>
+      <p>Один клик — и сказка звучит на нужном языке. Включите видео и убедитесь сами.</p>
+    </div>
+    <div class="video-box rv">
+      <video id="promoVideo" controls playsinline preload="metadata" poster="poster.jpg" aria-label="Видео о сказке-читалке">
+        <source src="reklama.mp4" type="video/mp4">
+        Ваш браузер не поддерживает видео.
+      </video>
+    </div>
+  </div>
+</section>
 
 <section>
   <div class="wrap">
@@ -427,6 +474,18 @@ document.querySelectorAll('.spk').forEach(btn => {
     audio.play().catch(() => btn.classList.remove('speaking'));
   });
 });
+
+const promo = document.getElementById('promoVideo');
+if (promo){
+  promo.muted = true;
+  promo.playsInline = true;
+  const tryPlay = () => { const p = promo.play(); if (p && p.catch) p.catch(()=>{}); };
+  tryPlay();
+  promo.addEventListener('click', () => {
+    promo.muted = false;
+    promo.controls = true;
+  });
+}
 </script>
 </body>
 </html>
